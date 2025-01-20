@@ -54,7 +54,7 @@ This is a C++ implementation of a Sudoku solver that uses backtracking to solve 
 
 
 ## Sample Input and Output
-# Input:
+### Input:
 
 5 3 0 | 0 7 0 | 0 0 0
 6 0 0 | 1 9 5 | 0 0 0
@@ -69,7 +69,7 @@ This is a C++ implementation of a Sudoku solver that uses backtracking to solve 
 0 0 0 | 0 8 0 | 0 7 9
 
 
-# Output:
+### Output:
 
 5 3 4 | 6 7 8 | 9 1 2
 6 7 2 | 1 9 5 | 3 4 8
@@ -98,4 +98,4 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Developed by Lucky Joshi.
+Developed by Lucky Joshi
