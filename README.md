@@ -1,67 +1,101 @@
- Sudoku program using C++
-A simple Sudoku C++ program that takes a matrix of  9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid (also called "boxes", "blocks", or "regions") contain all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.
+# Sudoku Solver in C++
 
-TECHNOLOGY USED:
-         Programming Language  : C++
-         Soft-wares: DEV-C++
-Platforms:
-Download DEV-C++ 5.11.492 for Windows - Filehippo.com
+This is a C++ implementation of a Sudoku solver that uses backtracking to solve 9x9 Sudoku puzzles. It includes functionalities to validate inputs, check safe placements, and print the Sudoku grid.
+
+---
+
+## Features
+
+- **Backtracking Algorithm**: Efficiently solves Sudoku puzzles.
+- **Input Validation**: Ensures the initial grid follows Sudoku rules.
+- **Grid Printing**: Displays the Sudoku grid in a readable format.
+- **Customizable**: Supports any 9x9 Sudoku puzzle as input.
+
+---
+
+## How It Works
+
+1. **Input Validation**: 
+   - The program checks rows, columns, and 3x3 subgrids for duplicates.
+   - Ensures the input grid adheres to Sudoku rules.
+
+2. **Backtracking**:
+   - The algorithm tries placing numbers (1–9) in each empty cell.
+   - Recursively checks if the placement is valid.
+   - If a placement leads to a dead end, it backtracks and tries the next possible number.
+
+3. **Grid Printing**:
+   - The grid is printed with separators for better visualization.
+
+---
+
+## Code Structure
+
+- **`isSafe`**: Checks if placing a number in a cell is valid.
+- **`isValidInput`**: Validates the initial Sudoku grid.
+- **`solveSudoku`**: Solves the Sudoku puzzle using backtracking.
+- **`print`**: Prints the Sudoku grid in a formatted manner.
+
+---
+
+## Usage
+
+1. **Include the Code**:
+   Copy and paste the code into your C++ project.
+
+2. **Input the Sudoku Grid**:
+   - Replace `mat[n][n]` with your Sudoku puzzle.
+   - Use `0` for empty cells.
+
+3. **Compile and Run**:
+   ```bash
+   g++ sudoku_solver.cpp -o sudoku_solver
+   ./sudoku_solver
 
 
-SEPTS TO RUN THE PROGRAM:
-1.	Open file Sudoku.cpp input the sudoku puzzle with "." (don't include quotations) for blank spaces to be solved and a newline every 9 characters (don't add spaces), once entered save this file
+## Sample Input and Output
+# Input:
 
-2.	Run the program by clicking Sudoku.exe 
- 
-
-
-
-
-
-
-
-	3. Read the output on the Command promt or read the log file: Sudoku.cpp for the results
- 
-
-  
-         This is a C++ program to run a SUDOKU  ,in this we use three functions:
-  1.for printing
- 2. for checking
- 3. for sloving
-HOW PROGRAM WORKS::
-1.	Create a function that checks if the given matrix is valid sudoku or not. Keep Hashmap for the row, column and boxes. If any number has a frequency greater than 1 in the hashMap return false else return true;
-
-2.	Create a recursive function that takes a grid and the current row and column index.
+5 3 0 | 0 7 0 | 0 0 0
+6 0 0 | 1 9 5 | 0 0 0
+0 9 8 | 0 0 0 | 0 6 0
+------+------+------
+8 0 0 | 0 6 0 | 0 0 3
+4 0 0 | 8 0 3 | 0 0 1
+7 0 0 | 0 2 0 | 0 0 6
+------+------+------
+0 6 0 | 0 0 0 | 2 8 0
+0 0 0 | 4 1 9 | 0 0 5
+0 0 0 | 0 8 0 | 0 7 9
 
 
-3.	Check some base cases. If the index is at the end of the matrix, i.e. i=N-1 and j=N then check if the grid is safe or not, if safe print the grid and return true else return false. The other base case is when the value of column is N, i.e j = N, then move to next row, i.e. i++ and j = 0.
+# Output:
 
-4.	if the current index is not assigned then fill the element from 1 to 9 and recur for all 9 cases with the index of next element, i.e. i, j+1. if the recursive call returns true then break the loop and return true.
+5 3 4 | 6 7 8 | 9 1 2
+6 7 2 | 1 9 5 | 3 4 8
+1 9 8 | 3 4 2 | 5 6 7
+------+------+------
+8 5 9 | 7 6 1 | 4 2 3
+4 2 6 | 8 5 3 | 7 9 1
+7 1 3 | 9 2 4 | 8 5 6
+------+------+------
+9 6 1 | 5 3 7 | 2 8 4
+2 8 7 | 4 1 9 | 6 3 5
+3 4 5 | 2 8 6 | 1 7 9
 
 
-5.	if the current index is assigned then call the recursive function with index of next element, i.e. i, j+1
+## Dependencies
 
+Standard C++ library (<iostream>, <vector>).
 
-SAMPLE INPUT:: 
+## Contributing
 
-1 0 3 4 0 0 7 0 9
-0 5 6 0 8 9 0 2 3
-0 8 9 1 0 3 4 0 6
-2 1 4 0 6 5 0 9 7
-3 0 0 8 0 7 0 1 4
-8 0 7 0 1 4 0 6 5
-0 3 1 0 4 0 9 7 8
-6 4 0 9 7 0 5 3 1
-0 7 8 0 0 1 0 4 2
+Contributions are welcome! Feel free to submit a pull request or open an issue for bugs, improvements, or suggestions.
 
-SAMPLE OUTPUT::
+## License
 
-1 2 3 4 5 6 7 8 9
-4 5 6 7 8 9 1 2 3
-7 8 9 1 2 3 4 5 6
-2 1 4 3 6 5 8 9 7
-3 6 5 8 9 7 2 1 4
-8 9 7 2 1 4 3 6 5
-5 3 1 6 4 2 9 7 8
-6 4 2 9 7 8 5 3 1
-9 7 8 5 3 1 6 4 2
+This project is licensed under the MIT License.
+
+## Author
+
+Developed by Lucky Joshi.
